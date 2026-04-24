@@ -1,0 +1,179 @@
+/* ===== Global ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+/* ===== Header / Nav ===== */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 30px; background: #fff; border-bottom: 2px solid #ff5a8b;
+  position: sticky; top: 0; z-index: 1000;
+}
+header .logo { font-size: 1.6rem; font-weight: bold; color: #ff5a8b; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav a { text-decoration: none; color: #333; font-weight: 500; transition: color .3s; }
+nav a:hover, nav a.active { color: #ff5a8b; }
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url("bilder/IMG_1916.JPEG") center/cover no-repeat;
+  color: #fff; text-align: center; padding: 100px 20px;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero p  { font-size: 1.2rem; margin-bottom: 30px; }
+.btn {
+  background: #ff5a8b; color: #fff; padding: 12px 25px; border-radius: 25px;
+  text-decoration: none; font-weight: bold; transition: background .3s;
+}
+.btn:hover { background: #e04876; }
+
+/* ===== Sections ===== */
+section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+h1, h2 { color: #ff5a8b; margin-bottom: 20px; }
+p { margin-bottom: 20px; font-size: 1rem; }
+.wide-img {
+  width: 100%; margin: 20px 0; border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+/* ===== Öffnungszeiten prominent ===== */
+.hours.prominent {
+  background: #e91e63; /* kräftigeres Pink für bessere Lesbarkeit */
+  color: #fff;         /* weiße Schrift */
+  text-align: center;
+  padding: 40px 20px; border-radius: 12px; margin: 40px auto; max-width: 820px;
+}
+.hours.prominent h2 { margin-bottom: 18px; font-size: 1.9rem; color: #fff; }
+.hours.prominent ul { list-style: none; font-size: 1.15rem; line-height: 1.9; padding: 0; margin: 0; }
+.hours.prominent li { font-weight: 500; }
+
+/* ===== Slideshow (mit soften Fades) ===== */
+.slideshow-section h2 { text-align: center; }
+
+.slideshow-container {
+  position: relative; max-width: 1100px; margin: 10px auto 0;
+  /* Höhe stabilisieren, damit beim Wechsel nichts springt */
+  aspect-ratio: 16/9; /* fallback via min-height für ältere Browser: */
+  min-height: 360px;
+  overflow: hidden; border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  background: #f7f7f7;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  display: block; opacity: 0; visibility: hidden;
+  transition: opacity 600ms ease, visibility 600ms ease;
+}
+.slide.show { opacity: 1; visibility: visible; }
+
+.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.caption {
+  position: absolute; left: 20px; bottom: 20px;
+  background: rgba(255,90,139,.9); color: #fff;
+  padding: 10px 14px; border-radius: 8px; font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+
+/* Prev / Next */
+.prev, .next {
+  cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
+  padding: 12px 16px; color: #fff; font-weight: 700; font-size: 20px;
+  border-radius: 999px; background: rgba(0,0,0,.4); transition: background .3s;
+  user-select: none;
+}
+.next { right: 12px; } .prev { left: 12px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,.7); }
+
+/* Dots */
+.dots { text-align: center; margin-top: 14px; }
+.dot {
+  cursor: pointer; height: 12px; width: 12px; margin: 0 4px;
+  background: #d9d9d9; border-radius: 50%; display: inline-block; transition: background .3s;
+}
+.dot.active, .dot:hover { background: #ff5a8b; }
+
+/* ===== Instagram ===== */
+.instagram { padding-top: 10px; }
+.insta-header {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+.insta-btn {
+  background: #ff5a8b; color: #fff; padding: 10px 14px; border-radius: 999px;
+  text-decoration: none; font-weight: 700; font-size: .95rem;
+}
+.insta-btn:hover { background: #e04876; }
+
+/* ===== Footer ===== */
+footer { text-align: center; background: #ff5a8b; color: #fff; padding: 20px; margin-top: 50px; }
+footer a { color: #fff; font-weight: 700; text-decoration: underline; }
+footer a:hover { opacity: .9; }
+
+/* ===== Responsive ===== */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 2.2rem; }
+  .caption { font-size: .95rem; left: 12px; right: 12px; }
+}
+
+/* ===== Aktuelles / Notice ===== */
+.notice { padding: 0 20px; max-width: 1100px; margin: -10px auto 40px; }
+.notice-inner {
+  display: grid; grid-template-columns: 120px 1fr; gap: 16px;
+  background: #ffeaf0; border: 1px solid #ffd1dc; border-radius: 14px;
+  padding: 18px; align-items: center; box-shadow: 0 8px 16px rgba(0,0,0,.05);
+}
+.date-chip {
+  display: grid; place-items: center; align-self: stretch;
+  background: #fff; border: 2px solid #ff5a8b; border-radius: 12px;
+}
+.date-chip .day { font-weight: 800; font-size: 1.6rem; color: #ff5a8b; line-height: 1; }
+.date-chip .mon { font-weight: 800; letter-spacing: 1px; color: #ff5a8b; }
+.notice-text h3 { margin: 0 0 6px; color: #ff5a8b; }
+.notice-text p { margin: 0 0 10px; }
+.notice-link { color: #ff5a8b; font-weight: 700; text-decoration: none; }
+.notice-link:hover { text-decoration: underline; }
+@media (max-width: 640px){
+  .notice-inner { grid-template-columns: 1fr; }
+  .date-chip { height: 70px; }
+}
+
+/* ===== Events / Highlights ===== */
+.events { padding: 20px; max-width: 1100px; margin: 0 auto; }
+.events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.event-card {
+  background: #fff; border: 1px solid #f0c0ce; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06); transition: transform .2s ease, box-shadow .2s ease;
+}
+.event-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,.08); }
+.event-media { position: relative; }
+.event-media img { width: 100%; display: block; height: 220px; object-fit: cover; }
+.event-badge {
+  position: absolute; bottom: 10px; left: 10px;
+  background: rgba(255,90,139,.92); color: #fff; padding: 6px 10px;
+  border-radius: 999px; font-size: .85rem; font-weight: 700;
+}
+.event-body { padding: 14px 14px 16px; }
+.event-body h3 { color: #ff5a8b; margin-bottom: 6px; }
+.event-body p { margin: 0; }
+
+/* kleines Banner auf About */
+.small-banner { max-height: 300px; object-fit: cover; }
+
+/* Collagen für Sortiment */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 14px 0 34px;
+}
+.collage img {
+  width: 100%; height: 220px; object-fit: cover;
+  border-radius: 12px; box-shadow: 0 6px 14px rgba(0,0,0,.1);
+}
+
+/* Aufzählung im Kontakt */
+.list { margin-left: 18px; }
